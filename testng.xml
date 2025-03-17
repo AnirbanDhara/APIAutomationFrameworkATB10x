@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true"
+          name="C:/Users/Anirban/Documents/RestAssuredAutomation/APIAutomationFrameworkATB10x">
+        <classes>
+            <class name="com.anirbandhara.tests.sample.TestIntegrationSample">
+                <methods>
+                    <include name="testCreateBooking"/>
+                    <include name="testGetBooking"/>
+                    <include name="testUpdateBooking"/>
+                    <include name="testDeleteBooking"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
