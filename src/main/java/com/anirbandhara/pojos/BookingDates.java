@@ -1,4 +1,4 @@
-package com.anirbandhara.ex10_PayloadManagement.gson;
+package com.anirbandhara.pojos;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
