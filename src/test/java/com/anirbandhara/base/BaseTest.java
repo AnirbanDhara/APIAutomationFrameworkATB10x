@@ -38,7 +38,7 @@ public class BaseTest {
 //        requestSpecification.contentType(ContentType.JSON).log().all();
 
 
-          requestSpecification = new RequestSpecBuilder()
+        requestSpecification = new RequestSpecBuilder()
                 .setBaseUri(APIConstants.BaseURL)
                 .addHeader("Content-Type", "application/json")
                 .build().log().all();
@@ -51,23 +51,23 @@ public class BaseTest {
 //        RestAssured.with().spec(requestSpec);
 
 
-
     }
 
-//    public String getToken() {
-//        requestSpecification  = RestAssured
-//                .given()
-//                .baseUri(APIConstants.BaseURL).basePath(APIConstants.CreateToken_BasePath);
-//
-//        // Setting the payload
-//        String payload = payloadManager.setAuthPayload();
-//
-//        // Get the Token
-//        response = requestSpecification.contentType(ContentType.JSON).body(payload).when().post();
-//        // String Extraction
-//
-//        return payloadManager.getTokenFromJSON(response.asString());
+    public String getToken() {
+        requestSpecification = RestAssured
+                .given()
+                .baseUri(APIConstants.BaseURL).basePath(APIConstants.CreateToken_BasePath);
+
+        // Setting the payload
+        String payload = payloadManager.setAuthPayload();
+
+        // Get the Token
+        response = requestSpecification.contentType(ContentType.JSON).body(payload).when().post();
+        //String Extraction
+
+        return payloadManager.getTokenFromJSON(response.asString());
 
 
     }
+}
 

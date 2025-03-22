@@ -2,6 +2,9 @@ package com.anirbandhara.modules;
 
 import com.anirbandhara.pojos.*;
 import com.google.gson.Gson;
+import java.lang.reflect.Type;              // For Type
+import java.util.List;                      // For List
+import com.google.gson.reflect.TypeToken;
 
 public class PayloadManager {
 
@@ -53,4 +56,38 @@ public class PayloadManager {
         TokenResponse tokenResponse1  = gson.fromJson(tokenResponse, TokenResponse.class);
         return tokenResponse1.getToken().toString();
     }
+
+
+    public Booking getResponseFromJSON(String getResponse){
+        gson = new Gson();
+        Booking booking = gson.fromJson(getResponse,Booking.class);
+        return booking;
+    }
+
+    public String fullUpdatePayloadAsString() {
+        Booking booking = new Booking();
+        booking.setFirstname("James");
+        booking.setLastname("Brown");
+        booking.setTotalprice(3765);
+        booking.setDepositpaid(true);
+
+        BookingDates bookingdates = new BookingDates();
+        bookingdates.setCheckin("2024-02-01");
+        bookingdates.setCheckout("2024-02-05");
+        booking.setBookingdates(bookingdates);
+        booking.setAdditionalneeds("Breakfast");
+        return gson.toJson(booking);
+
+
+    }
+
+    public List<GetAllBookingResponse> getAllBookingByIdResponse(String getAllbookingresponse){
+
+        Gson gson = new Gson();
+        Type bookingListType = new TypeToken<List<GetAllBookingResponse>>(){}.getType();
+        List<GetAllBookingResponse> bookings = gson.fromJson(getAllbookingresponse, bookingListType);
+        return bookings;
+    }
+
+
 }
